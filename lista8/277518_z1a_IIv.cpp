@@ -6,12 +6,10 @@ template <typename T = int>
 class Element
 {
 
-    protected:
-
-        T what;
-        int count;
 
     public:
+        T what;
+        int count;
 
         Element(T what = 0, int count = 0)
         {
@@ -240,7 +238,7 @@ class Multiset : public Element<T>
 int main()
 {
 
-   Multiset M1, M2, B, B1,D;
+   Multiset M1, M2, B, B1,D, D1, E, E1, F, F1;
    Element e;
    int n, k;
    std::cin >> n;
@@ -257,7 +255,32 @@ int main()
         e.change_element();
         M2.add_element(e);
     }
-    D = M1.intersection(M2);
+    M1.print_multiset();
+    std::cout<<std::endl;
+    M2.print_multiset();
+    std::cout<<std::endl;
+    B = M1;
+    B1 = M2;
+    E = M1;
+    E1 = M2;
+    F = M1;
+    F1 = M2;
+    D = M1.sum_sets(M2);
     D.print_multiset();
+    std::cout<<std::endl;
+    D1 = B.intersection(B);
+    std::cout<<std::endl;
+    (E.diffrence(E1).print_multiset());
+    std::cout<<std::endl;
+    if(F1.subset(F))
+    {
+        std::cout<<"Podzbior";
+    }
+    else
+    {
+        std::cout<<"Nie podzbior"
+    }
+    
+
     return 0;
 }
